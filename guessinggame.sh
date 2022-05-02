@@ -2,14 +2,18 @@
 # File: guessinggame.sh
 # guessing game created by Ian Olivier for Unix Workbench Course"
 
-
-function guessinggame.sh {
 	echo "Hi :) This is a guessing game where you guess how many files are in your current directory! Please run this code in the directory in which you want to count your files!"
 	echo "Please enter your guess as a digit and press Enter:"
+	
+	#first count the number of files in the working directory:
 
-	read response
-
+function number_of_files {
 	let number_of_files=$(ls | wc -l)-1
+	}
+	
+read response #reads response of user
+
+# next check how user's response compares to the actual number of files in the working directory
 
 while [[ $response -ne $number_of_files ]]
 do
@@ -28,6 +32,6 @@ done
 	then
 		echo "Your guess is correct! Congrats!"
 	fi
-}
+
 
 
